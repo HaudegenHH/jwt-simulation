@@ -1,2 +1,1 @@
-# jwt-demo
-Demo repo for video about the JWT lifecycle
+# Simulating the json web token lifecycle

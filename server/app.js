@@ -32,10 +32,11 @@ app.get('/test', (req, res) => {
   const [type, token] = header.split(' ');
   if (type === 'Bearer' && typeof token !== 'undefined') {
     try {
+      // let payload = JSON.parse(atob(t.split('.')[1]))
       let payload = jwt.verify(token, jwt_key);
       let current = Math.floor(Date.now() / 1000);
       let diff = current - payload.exp;
-      res.status(200).send({ code: 0, message: `all good. ${diff} remaining` });
+      res.status(200).send({ code: 0, message: `all good. ${diff} seconds remaining` });
     } catch (err) {
       res.status(401).send({ code: 123, message: 'Invalid or expired token.' });
     }
